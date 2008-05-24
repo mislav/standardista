@@ -8,7 +8,7 @@ Standardista is a set of options for [Haml 2.0](http://nex-3.com/posts/76-haml-2
 
 Include the Haml gem in your environment.rb:
 
-  config.gem 'haml', :version => '~> 2.0'
+    config.gem 'haml', :version => '~> 2.0'
   
 Features
 --------
@@ -16,3 +16,5 @@ Features
 * in production: sets Sass output to 'compact'
 * in production: turns on Haml 'ugly' mode (faster rendering because it doesn't care for indenting)
 * patches ActionView `tag` helper to stop generating self-closing tags
+
+More to come.
