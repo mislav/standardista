@@ -1,5 +1,3 @@
-Haml::init_rails(binding) unless defined? Haml::Template
-
 Haml::Template::options.update({
   # this renders the proper DOCTYPE and affects how tags are rendered
   :format => :html4,
@@ -33,5 +31,3 @@ module StandardistaHelper
     "<#{name}#{tag_options(options, escape) if options}>"
   end
 end
-
-ActionView::Base.send :include, StandardistaHelper
