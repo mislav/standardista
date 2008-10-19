@@ -24,10 +24,16 @@ if ENV['RAILS_ENV'] == 'production'
   Sass::Plugin.update_stylesheets
 end
 
-module StandardistaHelper
-  # override tag helper from Rails to disable self-closing tags
-  # (there is no such thing in HTML)
-  def tag(name, options = nil, open = false, escape = true)
-    "<#{name}#{tag_options(options, escape) if options}>"
+module Standardista
+  def self.auto_escape_html
+    Haml::Template::options[:escape_html] = true
+  end
+  
+  module Helpers
+    # override tag helper from Rails to disable self-closing tags
+    # (there is no such thing in HTML)
+    def tag(name, options = nil, open = false, escape = true)
+      "<#{name}#{tag_options(options, escape) if options}>"
+    end
   end
 end
