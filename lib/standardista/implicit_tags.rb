@@ -31,7 +31,7 @@ module Standardista
     end
   
     def render_tag_with_guess(line)
-      if line =~ /^%([^a-z])/
+      if line =~ /^%([^a-z]|$)/
         line = '%' + allowed_nesting + $1 + $'
       end
       render_tag_without_guess(line)
@@ -126,6 +126,13 @@ if $0 == __FILE__
     it "should obey the 'guess' syntax" do
       template = "%ol\n  % list item"
       result = "<ol>\n  <li>list item</li>\n</ol>\n"
+      
+      render(template).should == result
+    end
+    
+    it "should guess even if '%' is the only character on the line" do
+      template = "%\n  Content"
+      result = "<div>\n  Content\n</div>\n"
       
       render(template).should == result
     end
