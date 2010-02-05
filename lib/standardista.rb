@@ -19,9 +19,6 @@ if ENV['RAILS_ENV'] == 'production'
   
   # minimal whitespace in CSS files
   Sass::Plugin.options[:style] = :compact
-  
-  # render CSS from Sass when the application starts
-  Sass::Plugin.update_stylesheets
 end
 
 module Standardista
